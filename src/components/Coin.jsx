@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "../styles/Coin.css";
 import Face from "./Face";
 
-const MAX_SPEED = 0.8;
+const MAX_SPEED = 0.6;
 const DEFAULT_SPEED = Math.random() % (MAX_SPEED / 2);
-const DECAY = (speed) => speed / 5;
+const DECAY = (speed) => speed / (Math.floor((Math.random() * 5)) + 3);
 
 const Coin = (props) => {
     const [ speed, setSpeed ] = useState(DEFAULT_SPEED);

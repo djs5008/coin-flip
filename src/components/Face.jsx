@@ -19,7 +19,7 @@ const Face = (props) => {
                 width="200" 
                 className={`${currentSide ? "active" : ""} ${flipping ? "flipping" : ""}`} 
                 onAnimationIteration={onSideFlip} 
-                style={{ animationDuration: `${speed}s` }} 
+                style={{ animationDuration: `${speed}s`, transition: `transform ${speed*2}s ease-out` }} 
             />
         </div>
     );

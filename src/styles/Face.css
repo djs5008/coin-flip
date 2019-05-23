@@ -8,7 +8,6 @@
 
 .Face img.active {
     transform: scaleX(1.0);
-    transition: transform 0.5s ease-in;
 }
 
 .Face img.flipping {
