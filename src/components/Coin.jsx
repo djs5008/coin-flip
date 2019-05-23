@@ -12,7 +12,8 @@ const Coin = (props) => {
         side, 
         setSide, 
         flipping, 
-        setFlipping
+        setFlipping,
+        onFinish,
     } = props;
     const otherSide = (side === "Heads") ? "Tails" : "Heads";
 
@@ -25,6 +26,7 @@ const Coin = (props) => {
         if (speed >= 0.8) {
             setFlipping(false);
             setSpeed(DEFAULT_SPEED);
+            onFinish();
         } else {
             setSpeed(speed + DECAY(speed));
         }
