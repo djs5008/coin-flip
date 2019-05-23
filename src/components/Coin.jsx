@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import "../styles/Coin.css";
 import Face from "./Face";
 
+
 const MAX_SPEED = 0.6;
-const DEFAULT_SPEED = Math.random() % (MAX_SPEED / 2);
 const DECAY = (speed) => speed / (Math.floor((Math.random() * 5)) + 3);
 
+const defaultState = {
+    defaultSpeed: Math.random() % (MAX_SPEED / 2)
+};
+
 const Coin = (props) => {
-    const [ speed, setSpeed ] = useState(DEFAULT_SPEED);
+    const [ speed, setSpeed ] = useState(defaultState.defaultSpeed);
     const { 
         side, 
         setSide, 
@@ -25,7 +29,7 @@ const Coin = (props) => {
         flip();
         if (speed >= 0.8) {
             setFlipping(false);
-            setSpeed(DEFAULT_SPEED);
+            setSpeed(defaultState.defaultSpeed);
             onFinish();
         } else {
             setSpeed(speed + DECAY(speed));
@@ -37,8 +41,8 @@ const Coin = (props) => {
 
     return (
         <div className="Coin">
-            <Face image="Heads.png" speed={speed} currentSide={ side === "Heads" } flipping={ side === "Heads" && flipping } onSideFlip={handleSideFlip} />
-            <Face image="Tails.png" speed={speed} currentSide={ side === "Tails" } flipping={ side === "Tails" && flipping } onSideFlip={handleSideFlip} />
+            <Face image="img/Heads.png" speed={speed} currentSide={ side === "Heads" } flipping={ side === "Heads" && flipping } onSideFlip={handleSideFlip} />
+            <Face image="img/Tails.png" speed={speed} currentSide={ side === "Tails" } flipping={ side === "Tails" && flipping } onSideFlip={handleSideFlip} />
         </div>
     );
 };
