@@ -3,11 +3,24 @@ import "../styles/Face.css";
 
 const Face = (props) => {
 
-    const { image, flipping, onSideFlip, currentSide } = props;
+    const { 
+        image, 
+        flipping, 
+        onSideFlip, 
+        currentSide,
+        speed,
+    } = props;
 
     return (
         <div className="Face">
-            <img src={image} className={`${currentSide ? 'active' : ''} ${flipping ? "flipping" : ''}`} alt="coin face" width="200" onAnimationIteration={onSideFlip} />
+            <img 
+                src={image} 
+                alt="coin face" 
+                width="200" 
+                className={`${currentSide ? "active" : ""} ${flipping ? "flipping" : ""}`} 
+                onAnimationIteration={onSideFlip} 
+                style={{ animationDuration: `${speed}s` }} 
+            />
         </div>
     );
 };

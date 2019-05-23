@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import '../styles/App.css';
-import Coin from './Coin';
+import React, { useState } from "react";
+import "../styles/App.css";
+import Coin from "./Coin";
 
 const CoinSide = {
   HEADS: "Heads", 
@@ -18,7 +18,7 @@ const App = () => {
 
   const handleFlip = () => {
     if (!flipping) {
-      setFlipping(!flipping);
+      setFlipping(true);
     }
   };
 
@@ -29,7 +29,7 @@ const App = () => {
           <Coin side={side} flipping={flipping} setSide={setSide} setFlipping={setFlipping} />
         </div>
         <div className={`flip-btn ${flipping ? "disabled" : ""}`} onClick={handleFlip} role="button" >
-          <p className="flip-btn-lbl">{(flipping) ? "Flipping" : "Flip Coin"}</p>
+          <p className="flip-btn-lbl">{(flipping) ? "Flipping..." : "Flip Coin"}</p>
         </div>
       </div>
     </div>

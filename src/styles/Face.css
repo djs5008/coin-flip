@@ -8,11 +8,11 @@
 
 .Face img.active {
     transform: scaleX(1.0);
+    transition: transform 0.5s ease-in;
 }
 
 .Face img.flipping {
     animation: flipping infinite ease-in-out;
-    animation-duration: 1.0s;
 }
 
 @keyframes flipping {
