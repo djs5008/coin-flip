@@ -1,20 +1,20 @@
-import React from 'react';
-import '../styles/Coin.css';
+import React, { useState } from "react";
+import "../styles/Coin.css";
+import Face from "./Face";
 
 const Coin = (props) => {
-    const { side, flipping } = props;
-    const { setSide } = props;
+    
+    const { side, setSide, flipping, setFlipping } = props;
     const otherSide = (side === "Heads") ? "Tails" : "Heads";
 
-    const handleAnimationIteration = () => {
-        console.log('flipped');
+    const handleSideFlip = () => {
         setSide(otherSide);
     };
 
     return (
         <div className="Coin">
-            <img className={`coin-1 ${flipping ? "flipping" : ""}`} src={`${side}.png`} alt="coin" width="200" onAnimationIteration={handleAnimationIteration} />
-            <img className={`coin-2 ${flipping ? "flipping" : ""}`} src={`${otherSide}.png`} alt="coin" width="200" onAnimationIteration={handleAnimationIteration} />
+            <Face image="Heads.png" currentSide={ side === "Heads" } flipping={ side === "Heads" && flipping } onSideFlip={handleSideFlip} />
+            <Face image="Tails.png" currentSide={ side === "Tails" } flipping={ side === "Tails" && flipping } onSideFlip={handleSideFlip} />
         </div>
     );
 };

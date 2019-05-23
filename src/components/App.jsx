@@ -17,17 +17,19 @@ const App = () => {
   const [ flipping, setFlipping ] = useState(defaultState.flipping);
 
   const handleFlip = () => {
-    setFlipping(!flipping);
+    if (!flipping) {
+      setFlipping(!flipping);
+    }
   };
 
   return (
     <div className="App">
       <div className="body">
         <div className="coin">
-          <Coin side={side} flipping={flipping} setSide={setSide} />
+          <Coin side={side} flipping={flipping} setSide={setSide} setFlipping={setFlipping} />
         </div>
-        <div className="flip-btn" onClick={handleFlip} role="button" >
-          <p className="flip-btn-lbl">{(flipping) ? "Stop Flip" : "Flip Coin"}</p>
+        <div className={`flip-btn ${flipping ? "disabled" : ""}`} onClick={handleFlip} role="button" >
+          <p className="flip-btn-lbl">{(flipping) ? "Flipping" : "Flip Coin"}</p>
         </div>
       </div>
     </div>

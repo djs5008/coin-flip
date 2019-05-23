@@ -8,25 +8,23 @@
 .Coin .coin-1 {
     position: absolute;
     animation-play-state: paused;
+    transform: scaleX(1.0);
 }
 
 .Coin .coin-2 {
     position: absolute;
     animation-play-state: paused;
+    transform: scaleX(0.0);
 }
 
 .Coin .coin-1.flipping {
     animation: flipping-1 infinite ease-in-out;
-    animation-duration: 1.0s;
     animation-play-state: running;
-    animation-delay: 0.5s;
 }
 
 .Coin .coin-2.flipping {
     animation: flipping-2 infinite ease-in-out;
-    animation-duration: 1.0s;
     animation-play-state: running;
-    animation-delay: 0.5s;
 }
 
 @keyframes flipping-1 {

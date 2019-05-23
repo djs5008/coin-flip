@@ -21,6 +21,11 @@
   height: auto;
 }
 
+.App div.flip-btn.disabled {
+  opacity: 0.7;
+  cursor: not-allowed !important;
+}
+
 .App div.flip-btn[role="button"] {
   display: flex;
   justify-content: center;
@@ -37,7 +42,7 @@
   transition: filter 0.125s linear, transform 0.125s linear;
 }
 
-.App div.flip-btn[role="button"]:hover {
+.App div.flip-btn[role="button"]:hover:not(.disabled) {
   transform: scale(1.02, 1.02);
   filter: drop-shadow(0  4px 5px rgba(0, 0, 0, 0.12))
           drop-shadow(0  1px 10px rgba(0, 0, 0, 0.14))
@@ -49,4 +54,6 @@
 .App .flip-btn-lbl {
   font-family: sans-serif;
   margin: 0;
+  pointer-events: none;
+  user-select: none;
 }
