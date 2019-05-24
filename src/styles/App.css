@@ -13,16 +13,20 @@
   height: 100%;
   width: 100%;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .App .count {
-  width: 50%;
+  width: 100%;
 }
 
 .App > .body .cointainer {
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  width: 100%;
 }
 
 .App .coin {
@@ -70,6 +74,7 @@
 
 .App ol {
   padding: 0;
+  min-height: 25px;
 }
 
 .App ol li {
