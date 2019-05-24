@@ -20,14 +20,6 @@
   width: 50%;
 }
 
-.App .head.count {
-
-}
-
-.App .tail.count {
-
-}
-
 .App > .body .cointainer {
   flex-direction: column;
   flex-wrap: wrap;
