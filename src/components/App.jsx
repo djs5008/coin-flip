@@ -26,7 +26,21 @@ const App = () => {
     }
   };
 
-  const handleFinish = () => {
+  const addTally = (side) => {
+    let tallyContainer;
+    switch (side) {
+      case "Heads":
+        tallyContainer = document.getElementById("head-tally");
+        break;
+      case "Tails":
+        tallyContainer = document.getElementById("tail-tally");
+        break;
+      default: break;
+    }
+    tallyContainer.appendChild(document.createElement('li'));
+  };
+
+  const handleFinish = (side) => {
     switch (side) {
       case CoinSide.HEADS:
         setHeads(heads + 1);
@@ -36,16 +50,27 @@ const App = () => {
         break;
       default: /* how..? */ break;
     }
+    addTally(side);
   };
 
   return (
     <div className="App">
       <div className="body">
-        <div className="coin">
-          <Coin side={side} flipping={flipping} setSide={setSide} setFlipping={setFlipping} onFinish={handleFinish} />
+        <div className={`head count`}>
+          <h3>Heads</h3>
+          <ol id="head-tally"></ol>
         </div>
-        <div className={`flip-btn ${flipping ? "disabled" : ""}`} onClick={handleFlip} role="button" >
-          <p className="flip-btn-lbl">{(flipping) ? "Flipping..." : "Flip Coin"}</p>
+        <div className="cointainer">
+          <div className="coin">
+            <Coin side={side} flipping={flipping} setSide={setSide} setFlipping={setFlipping} onFinish={handleFinish} />
+          </div>
+          <div className={`flip-btn ${flipping ? "disabled" : ""}`} onClick={handleFlip} role="button" >
+            <p className="flip-btn-lbl">{(flipping) ? "Flipping..." : "Flip Coin"}</p>
+          </div>
+        </div>
+        <div className={`tail count`}>
+          <h3>Tails</h3>
+          <ol id="tail-tally"></ol>
         </div>
       </div>
     </div>

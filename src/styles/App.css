@@ -8,12 +8,29 @@
   background-color: #282c34;
   color: white;
   display: inline-flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.App .count {
+  width: 50%;
+}
+
+.App .head.count {
+
+}
+
+.App .tail.count {
+
+}
+
+.App > .body .cointainer {
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .App .coin {
@@ -26,7 +43,7 @@
   cursor: not-allowed !important;
 }
 
-.App div.flip-btn[role="button"] {
+.App div.flip-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,9 +57,10 @@
           drop-shadow(0  1px 5px rgba(0, 0, 0, 0.12))
           drop-shadow(0 -1px 2px rgba(0, 0, 0, 0.1));
   transition: filter 0.125s linear, transform 0.125s linear;
+  margin: auto;
 }
 
-.App div.flip-btn[role="button"]:hover:not(.disabled) {
+.App div.flip-btn:hover:not(.disabled) {
   transform: scale(1.02, 1.02);
   filter: drop-shadow(0  4px 5px rgba(0, 0, 0, 0.12))
           drop-shadow(0  1px 10px rgba(0, 0, 0, 0.14))
@@ -56,4 +74,25 @@
   margin: 0;
   pointer-events: none;
   user-select: none;
+}
+
+.App ol {
+  padding: 0;
+}
+
+.App ol li {
+  display: inline-block;
+  height: 20px;
+  border: 1px solid #EEE;
+  margin-right: 4px;
+}
+
+.App ol li:nth-child(5n) {
+  transform: rotate(300deg);
+  height: 30px;
+  position: relative;
+  left: -15px;
+  top: 5px;
+  margin-right: 1em;
+  margin-top: -10px;
 }

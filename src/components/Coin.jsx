@@ -30,7 +30,7 @@ const Coin = (props) => {
         if (speed >= 0.8) {
             setFlipping(false);
             setSpeed(defaultState.defaultSpeed);
-            onFinish();
+            onFinish(otherSide);
         } else {
             setSpeed(speed + DECAY(speed));
         }
