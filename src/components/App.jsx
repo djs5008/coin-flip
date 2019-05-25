@@ -61,11 +61,11 @@ const App = () => {
     <div className="App">
       <div className="body">
         <div className="counts">
-          <div className={`head count`}>
+          <div className="head count">
             <h3>Heads</h3>
             <ol id="head-tally" />
           </div>
-          <div className={`tail count`}>
+          <div className="tail count">
             <h3>Tails</h3>
             <ol id="tail-tally" />
           </div>

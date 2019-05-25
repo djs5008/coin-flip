@@ -13,12 +13,8 @@ const Face = (props) => {
 
   useLayoutEffect(() => {
     const coinSide = document.getElementById(`coin-${side}`);
-    coinSide.style.setProperty("--total-rotation", totalRotation + "deg");
-    if (!startingSide) {
-      coinSide.style.transform = "rotateY(180deg)";
-    } else {
-      coinSide.style.transform = "rotateY(0deg)";
-    }
+    coinSide.style.setProperty("--total-rotation", `${totalRotation}deg`);
+    coinSide.style.transform = `rotateY(${startingSide ? "0" : "180"}deg)`;
   });
 
   return (
