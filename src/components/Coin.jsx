@@ -6,7 +6,7 @@ const Coin = (props) => {
   const { startingSide, flipping, onFinish } = props;
   const otherSide = startingSide === "Heads" ? "Tails" : "Heads";
 
-  let totalRotation = Math.floor(Math.random() * 900) + 3600;
+  let totalRotation = ((Math.floor(Math.random() * 2) + 1) * 180) + 1800 + Math.floor(Math.random() * 1800);
   totalRotation -= totalRotation % 180;
 
   const handleCoinStop = () => {
