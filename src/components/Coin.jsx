@@ -29,9 +29,6 @@ const Coin = (props) => {
     }
   };
 
-  console.clear();
-  console.info(`SPEED: ${speed}`);
-
   return (
     <div className="Coin">
       <Face

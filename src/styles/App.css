@@ -16,19 +16,6 @@
   flex-wrap: wrap;
 }
 
-.App .counts {
-  width: 50%;
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.App .count {
-  width: 50%;
-}
-
 .App > .body .cointainer {
   flex-direction: column;
   flex-wrap: wrap;
@@ -97,8 +84,34 @@
   transform: rotate(300deg);
   height: 30px;
   position: relative;
-  left: -15px;
+  left: -11px;
   top: 5px;
   margin-right: 1em;
   margin-top: -10px;
+}
+
+.App .count ol li:nth-child(5n - 1) {
+  margin-right: 0;
+}
+
+.App .counts {
+  width: 50vw;
+  min-width: 350px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.App .counts .count:first-child {
+  border-right: #aaa 1px solid;
+}
+
+.App .counts ol li:last-child {
+  margin-right: 0;
+}
+
+.App .count {
+  width: 50%;
 }
