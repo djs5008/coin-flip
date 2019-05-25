@@ -12,12 +12,21 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
+.App .counts {
+  width: 50%;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .App .count {
-  width: 100%;
+  width: 50%;
 }
 
 .App > .body .cointainer {

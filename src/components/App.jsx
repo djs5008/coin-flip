@@ -58,9 +58,15 @@ const App = () => {
   return (
     <div className="App">
       <div className="body">
-        <div className={`head count`}>
-          <h3>Heads</h3>
-          <ol id="head-tally" />
+        <div className="counts">          
+          <div className={`head count`}>
+            <h3>Heads</h3>
+            <ol id="head-tally" />
+          </div>
+          <div className={`tail count`}>
+            <h3>Tails</h3>
+            <ol id="tail-tally" />
+          </div>
         </div>
         <div className="cointainer">
           <div className="coin">
@@ -80,10 +86,6 @@ const App = () => {
               {flipping ? "Flipping..." : "Flip Coin"}
             </p>
           </div>
-        </div>
-        <div className={`tail count`}>
-          <h3>Tails</h3>
-          <ol id="tail-tally" />
         </div>
       </div>
     </div>
