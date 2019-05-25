@@ -3,25 +3,35 @@
 }
 
 .Face img {
-  transform: scaleX(0);
+  transform: rotateY(90deg);
 }
 
 .Face img.active {
-  transform: scaleX(1);
+  transform: rotateY(0deg);
 }
 
-.Face img.flipping {
-  animation: flipping infinite ease-in-out;
+.Face img.flipping-left {
+  animation: flipping-left infinite ease-in-out;
 }
 
-@keyframes flipping {
-  0% {
-    transform: scaleX(0);
+.Face img.flipping-right {
+  animation: flipping-right infinite ease-in-out;
+}
+
+@keyframes flipping-left {
+  from {
+    transform: rotateY(90deg);
   }
-  50% {
-    transform: scaleX(1);
+  to {
+    transform: rotateY(-90deg);
   }
-  100% {
-    transform: scaleX(0);
+}
+
+@keyframes flipping-right {
+  from {
+    transform: rotateY(-90deg);
+  }
+  to {
+    transform: rotateY(90deg);
   }
 }
