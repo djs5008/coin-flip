@@ -37,7 +37,7 @@ const App = () => {
         break;
       default: break;
     }
-    tallyContainer.appendChild(document.createElement('li'));
+    tallyContainer.appendChild(document.createElement("li"));
   };
 
   const handleFinish = (side) => {
