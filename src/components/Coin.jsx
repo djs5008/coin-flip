@@ -1,31 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Coin.css";
 import Face from "./Face";
 
-const MAX_SPEED = 0.6;
-const DECAY = (speed) => speed / (Math.floor(Math.random() * 5) + 3);
-
-const defaultState = {
-  defaultSpeed: Math.random() % (MAX_SPEED / 2),
-};
-
 const Coin = (props) => {
-  const [speed, setSpeed] = useState(defaultState.defaultSpeed);
-  const { side, setSide, flipping, setFlipping, onFinish } = props;
-  const otherSide = side === "Heads" ? "Tails" : "Heads";
+  const { startingSide, flipping, onFinish } = props;
+  const otherSide = startingSide === "Heads" ? "Tails" : "Heads";
 
-  const flip = () => {
-    setSide(otherSide);
-  };
+  let totalRotation = Math.floor(Math.random() * 900) + 3600;
+  totalRotation -= totalRotation % 180;
 
-  const handleSideFlip = () => {
-    flip();
-    if (speed >= 0.8) {
-      setFlipping(false);
-      setSpeed(defaultState.defaultSpeed);
-      onFinish(otherSide);
-    } else {
-      setSpeed(speed + DECAY(speed));
+  const handleCoinStop = () => {
+    if (flipping) {
+      const totalFlips = totalRotation / 180;
+      const flipCountEven = totalFlips % 2 === 0;
+      onFinish(flipCountEven ? startingSide : otherSide);
     }
   };
 
@@ -33,17 +21,19 @@ const Coin = (props) => {
     <div className="Coin">
       <Face
         image="img/Heads.png"
-        speed={speed}
-        currentSide={side === "Heads"}
-        flipping={side === "Heads" && flipping}
-        onSideFlip={handleSideFlip}
+        side="heads"
+        startingSide={startingSide === "Heads"}
+        flipping={flipping}
+        onCoinStop={handleCoinStop}
+        totalRotation={totalRotation}
       />
       <Face
         image="img/Tails.png"
-        speed={speed}
-        currentSide={side === "Tails"}
-        flipping={side === "Tails" && flipping}
-        onSideFlip={handleSideFlip}
+        side="tails"
+        startingSide={startingSide === "Tails"}
+        flipping={flipping}
+        onCoinStop={handleCoinStop}
+        totalRotation={totalRotation}
       />
     </div>
   );

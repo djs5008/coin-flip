@@ -50,15 +50,17 @@ const App = () => {
         setTails(tails + 1);
         break;
       default:
-        /* how..? */ break;
+        /* rolled under the table */ break;
     }
     addTally(side);
+    setFlipping(false);
+    setSide(side);
   };
 
   return (
     <div className="App">
       <div className="body">
-        <div className="counts">          
+        <div className="counts">
           <div className={`head count`}>
             <h3>Heads</h3>
             <ol id="head-tally" />
@@ -71,10 +73,8 @@ const App = () => {
         <div className="cointainer">
           <div className="coin">
             <Coin
-              side={side}
+              startingSide={side}
               flipping={flipping}
-              setSide={setSide}
-              setFlipping={setFlipping}
               onFinish={handleFinish}
             />
           </div>

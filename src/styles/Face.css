@@ -2,36 +2,37 @@
   position: absolute;
 }
 
+:root {
+  --total-rotation: 360deg;
+}
+
 .Face img {
-  transform: rotateY(90deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-.Face img.active {
-  transform: rotateY(0deg);
+.Face img.flipping:not(.active) {
+  animation: flipping-inactive 3s ease-out forwards;
 }
 
-.Face img.flipping-left {
-  animation: flipping-left infinite ease-in-out;
+.Face img.flipping.active {
+  animation: flipping-active 3s ease-out forwards;
 }
 
-.Face img.flipping-right {
-  animation: flipping-right infinite ease-in-out;
-}
-
-@keyframes flipping-left {
+@keyframes flipping-active {
   from {
-    transform: rotateY(90deg);
+    transform: rotateY(0deg);
   }
   to {
-    transform: rotateY(-90deg);
+    transform: rotateY(var(--total-rotation));
   }
 }
 
-@keyframes flipping-right {
+@keyframes flipping-inactive {
   from {
-    transform: rotateY(-90deg);
+    transform: rotateY(180deg);
   }
   to {
-    transform: rotateY(90deg);
+    transform: rotateY(calc(var(--total-rotation) + 180deg));
   }
 }

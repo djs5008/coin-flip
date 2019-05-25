@@ -1,35 +1,39 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect } from "react";
 import "../styles/Face.css";
 
-const FlipDirection = {
-  LEFT: "left",
-  RIGHT: "right",
-};
-
 const Face = (props) => {
-  const { image, flipping, onSideFlip, currentSide, speed } = props;
-  const [ dir, setDir ] = useState((currentSide) ? FlipDirection.RIGHT : FlipDirection.LEFT);
+  const {
+    image,
+    flipping,
+    onCoinStop,
+    startingSide,
+    side,
+    totalRotation,
+  } = props;
 
-  const handleAnimIteration = () => {
-    setDir(dir === FlipDirection.LEFT ? FlipDirection.RIGHT : FlipDirection.LEFT);
-    onSideFlip();
-  };
+  useLayoutEffect(() => {
+    const coinSide = document.getElementById(`coin-${side}`);
+    coinSide.style.setProperty("--total-rotation", totalRotation + "deg");
+    if (!startingSide) {
+      coinSide.style.transform = "rotateY(180deg)";
+    } else {
+      coinSide.style.transform = "rotateY(0deg)";
+    }
+  });
 
   return (
     <div className="Face">
       <img
+        id={`coin-${side}`}
         src={image}
-        alt="coin face"
+        alt={`${side}`}
         width="200"
         className={`
-          ${currentSide ? "active" : ""} 
-          ${flipping ? `flipping-${dir}` : ""}
+          ${startingSide ? "active" : ""}
+          ${side}
+          ${flipping ? "flipping" : ""}
         `}
-        onAnimationIteration={handleAnimIteration}
-        style={{
-          animationDuration: `${speed}s`,
-          transition: `transform ${speed * 6}s ease-out`,
-        }}
+        onAnimationEnd={onCoinStop}
       />
     </div>
   );
